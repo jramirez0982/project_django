@@ -11,4 +11,14 @@
 
 </center></h3>
 
+{%include 'Q.html'%}<!--incrusta plantilla-->
+
 <h2>{{actual}} &nbsp; {{mensaje}}</h2>
+
+{% for i in carreras %}
+{{i.carrera}} &nbsp; pertenece a la facultad de {{i.facultad}}<br>
+{% endfor %}<br>
+___________________________________________________<br>
+{% for i in carreras_filt %}
+{{i.carrera}} &nbsp;  {{i.facultad}}<br>
+{% endfor %}
