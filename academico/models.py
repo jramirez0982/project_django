@@ -8,6 +8,9 @@ class Carrera(models.Model) :
     carrera = models.CharField(verbose_name="CARRERA", max_length=30) #creo el campo carrera de maximo 30 caracteres
     facultad = models.CharField(verbose_name="FACULTAD",max_length=30) # creo el campo Facultad
 
+    def __str__(self) -> str :
+        return f"{self.carrera}, {self.facultad}"
+        
 # CREAR TABLA MATERIAS
 class Materia(models.Model) :
     id = models.BigAutoField(verbose_name = "CÓDIGO", primary_key=True) # creo la primary key de la tabla con un campo autoincremental, 

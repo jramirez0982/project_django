@@ -11,14 +11,32 @@
 
 </center></h3>
 
-{%include 'Q.html'%}<!--incrusta plantilla-->
-
 <h2>{{actual}} &nbsp; {{mensaje}}</h2>
 
-{% for i in carreras %}
-{{i.carrera}} &nbsp; pertenece a la facultad de {{i.facultad}}<br>
-{% endfor %}<br>
-___________________________________________________<br>
-{% for i in carreras_filt %}
-{{i.carrera}} &nbsp;  {{i.facultad}}<br>
-{% endfor %}
+<a href="{% url 'create_carrera' %}"><button>CREAR NUEVO REGISTRO</button></a>
+
+
+{%include 'Q.html'%}<!--incrusta plantilla-->
+
+<table>
+    <thead>
+        <td>CARRERA</td>
+        <td>FACULTAD</td>
+        <td>ACCIONES</td>
+        
+    </thead>
+
+    {% for i in carreras %}
+
+    <tr>
+        <td>{{i.carrera}}</td>
+        <td>{{i.facultad}}</td>
+        <td>
+            <a href="{% url 'update_carrera' i.id %}"><button>ACTUALIZAR</button></a>
+            <a href="{% url 'delete_carrera' i.id %}"><button>ELIMINAR</button></a>
+        </td>
+    </tr>
+
+    {% endfor %}<br>
+
+</table>

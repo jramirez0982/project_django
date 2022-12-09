@@ -19,5 +19,9 @@ from academico.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('carreras/', carreras)
+    path('carreras/', carreras, name="carreras"),
+    path('carreras/create', c_carreras, name="create_carrera"),
+    path('carreras/update/<int:pk>', u_carreras, name='update_carrera'),
+    path('carreras/delete/<int:pk>', d_carreras, name='delete_carrera'),
+    
 ]
